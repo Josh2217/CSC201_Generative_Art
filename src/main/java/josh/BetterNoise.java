@@ -1,5 +1,7 @@
 package josh;
-
+/**
+ * @see <a href="https://en.wikipedia.org/wiki/Perlin_noise">Perlin Noise</a>
+ */
 public class BetterNoise {
     //this is taken from Perlin's own implementation because it's faster and works as inteded
     /**
@@ -9,10 +11,11 @@ public class BetterNoise {
         int xi = (int) Math.floor(x) & 255;
         int yi = (int) Math.floor(y) & 255; //value is confined to between 0 and 255
 
-        int g1 = p[p[xi    ] + yi    ];
-        int g2 = p[p[xi + 1] + yi    ];
-        int g3 = p[p[xi    ] + yi + 1];
-        int g4 = p[p[xi + 1] + yi + 1];
+        //gradient vectors reading from the pseudo random array p
+        int grad1 = p[p[xi    ] + yi    ];
+        int grad2 = p[p[xi + 1] + yi    ];
+        int grad3 = p[p[xi    ] + yi + 1];
+        int grad4 = p[p[xi + 1] + yi + 1];
 
         double xf = x - Math.floor(x);
         double yf = y - Math.floor(y);
@@ -20,13 +23,13 @@ public class BetterNoise {
         double u = fade(xf);
         double v = fade(yf);
 
-        double x1Inter = lerp(u, grad(g1, xf    , yf    ), grad(g2, xf - 1, yf    ));
-        double x2Inter = lerp(u, grad(g3, xf    , yf - 1), grad(g4, xf - 1, yf - 1));
-        return lerp(v, x1Inter, x2Inter);
+        double x1Inter = lerp(u, grad(grad1, xf    , yf    ), grad(grad2, xf - 1, yf    )); //linear interpolation between top left and right corners
+        double x2Inter = lerp(u, grad(grad3, xf    , yf - 1), grad(grad4, xf - 1, yf - 1)); //linear interpolation between bottom left and right corners
+        return lerp(v, x1Inter, x2Inter); //interpolation between those two intermediate values 
     }
 
     private static double lerp (double amount, double left, double right) {
-        return (1 - amount) * left + amount * right;
+        return (1 - amount) * left + amount * right; //standard linear interpolation
     }
 
     private static double fade(double t) {

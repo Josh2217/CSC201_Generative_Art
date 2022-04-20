@@ -2,6 +2,8 @@ package josh;
 
 import java.util.Random;
 
+//my own implementation of perlin noise
+//which for whatever reason doesn't exactly work
 public class Noise {
     private int sps; //samples per *lattice* spacing
 
@@ -13,7 +15,7 @@ public class Noise {
         
 
         rand = new Random();
-        field = new Vec2[sizex / sps + 1][sizey / sps + 1];
+        field = new Vec2[sizex / sps + 2][sizey / sps + 2];
 
         //populate field with random vectors
         for(int i = 0; i < field.length; ++i ) {
