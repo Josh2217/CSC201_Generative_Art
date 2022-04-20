@@ -1,4 +1,6 @@
 module name {
+    requires java.desktop;
+
     requires javafx.fxml;
     requires transitive javafx.controls;
 
