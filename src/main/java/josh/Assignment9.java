@@ -13,7 +13,7 @@ import java.util.Random;
 public class Assignment9 extends Application{
     static final int WIDTH = (int) java.awt.Toolkit.getDefaultToolkit().getScreenSize().getWidth();
     static final int HEIGHT = (int) java.awt.Toolkit.getDefaultToolkit().getScreenSize().getHeight();
-    static final int FRAMES = 100;
+    static final int FRAMES = 14;
     static final Color BG_COLOR = new Color(0.1, 0.1, 0.1, 1);
     static Random rand = new Random();
     
