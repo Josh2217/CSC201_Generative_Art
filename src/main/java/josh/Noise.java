@@ -48,7 +48,7 @@ public class Noise {
         value *= 255;
 
         while(value < 0) value += 255;
-        if(value > 255) value -= 255;
+        while(value > 255) value -= 255;
         return value;
     }
 

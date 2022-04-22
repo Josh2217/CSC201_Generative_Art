@@ -29,6 +29,7 @@ public class Assignment9 extends Application{
         
         double sums[][] = new double[WIDTH][HEIGHT];
         for(int i = 0; i < FRAMES + (FRAMES & 1); ++i){
+            //this way the resolution changes with every frame generated (adds nuance)
             Noise noise = new Noise(WIDTH, HEIGHT, 160 / (i + 1) + 1);
             double offset = rand.nextDouble(0, HEIGHT);
             
