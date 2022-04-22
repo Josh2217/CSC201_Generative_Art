@@ -9,7 +9,7 @@ import javafx.stage.Stage;
 
 import java.util.Random;
 
-//combines my scuffed af implementation of Perlin Noise, with Perlin's actual implementation to make some pretty marble like textures
+//combines my scuffed af implementation of Perlin Noise, with Perlin's actual implementation to make some pretty textures
 public class Assignment9 extends Application{
     static final int WIDTH = (int) java.awt.Toolkit.getDefaultToolkit().getScreenSize().getWidth();
     static final int HEIGHT = (int) java.awt.Toolkit.getDefaultToolkit().getScreenSize().getHeight();
