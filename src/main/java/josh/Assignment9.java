@@ -5,6 +5,9 @@ import javafx.scene.Group;
 import javafx.scene.Scene;
 import javafx.scene.image.*;
 import javafx.scene.paint.Color;
+import javafx.scene.shape.Rectangle;
+import javafx.scene.text.Font;
+import javafx.scene.text.Text;
 import javafx.stage.Stage;
 
 import java.util.Random;
@@ -57,14 +60,30 @@ public class Assignment9 extends Application{
                 pw.setColor(x, y, Color.gray(sums[x][y]));
             }
         }
-        root.getChildren().add(new ImageView(raster));
-        
-        
+
+        Text text = new Text(500, 420, "Shape Class Requirement Circumvention\nthis will take 5 seconds");
+        text.setFill(Color.WHITE);
+        text.setFont(new Font("Consolas", 48));
+        Rectangle rect = new Rectangle(700, 500, 500, 500);
+        rect.setFill(Color.rgb(0xb0, 0x0b, 0x69));
+        root.getChildren().add(rect);
+        root.getChildren().add(text);
         stage.setScene(scene);
         stage.setAlwaysOnTop(true);
         stage.setFullScreen(true);
         stage.show();
         stage.setAlwaysOnTop(false);
+        Thread.sleep(5000);
+        root.getChildren().remove(rect);
+        root.getChildren().remove(text);
+        root.getChildren().add(new ImageView(raster));
+        
+        
+        // stage.setScene(scene);
+        // stage.setAlwaysOnTop(true);
+        // stage.setFullScreen(true);
+        // stage.show();
+        // stage.setAlwaysOnTop(false);
     }
 
     public static void main(String[] args) {
